@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    ===========================================================================
+    CONTENT SECURITY POLICY
+    ===========================================================================
+    Served via meta tag because GitHub Pages does not let us set real HTTP
+    response headers. Known limitations of meta-tag CSP vs a header:
+      - frame-ancestors is NOT supported in meta tags (browsers ignore it here)
+      - No violation reporting (report-to / report-uri don't work via meta)
+      - Must be the FIRST thing in <head>, before any other tag that loads
+        a resource, or that earlier resource won't be covered by the policy
+
+    Directive notes:
+      - script-src: 'self' covers js/main.js. The two googletagmanager /
+        google-analytics entries are required for GTM + GA4 to load and run.
+        NO 'unsafe-inline' — the GTM bootstrap snippet is NOT pasted inline
+        in this file. It's loaded as an external file (js/gtm-init.js) so we
+        don't have to weaken this policy. If you add more GTM tags later
+        (Google Ads, Facebook Pixel, etc.) you will likely need to add their
+        domains here too — GTM will silently fail to fire those tags if you
+        don't, so check the browser console for CSP violation errors first.
+      - img-src: 'self' + data: for inline icons/placeholders, plus GA's
+        tracking pixel domain.
+      - connect-src: where GA4's beacon/collect calls go out to.
+      - style-src: 'self' only — all CSS lives in css/style.css, no inline
+        style attributes or <style> blocks. Keep it that way or this breaks.
+      - object-src 'none' and base-uri 'self': hardening defaults, block
+        Flash/legacy plugin vectors and <base> tag hijacking.
+    ===========================================================================
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com;
+    style-src 'self' https://fonts.googleapis.com;
+    img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com;
+    connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com;
+    font-src 'self' https://fonts.gstatic.com;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+  ">
+
+  <title>Sutherlands Nails | Gothic-inspired nail studio</title>
+  <meta name="description" content="Sutherlands Nails is a sleek, modern nail studio with a dark romantic edge — gel sculpting, hand-painted nail art, and restorative care." />
+
+  <!-- Google Fonts: Playfair Display (gothic-revival serif, display only)
+       paired with Inter (quiet sans, body text). Loaded via <link>, not
+       @import in CSS, so the CSP's style-src/font-src rules above cover
+       the request. Note style-src needed fonts.googleapis.com added
+       (serves the CSS) and font-src needed fonts.gstatic.com added
+       (serves the actual .woff2 files) — two different domains. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!--
+    ===========================================================================
+    GOOGLE TAG MANAGER
+    ===========================================================================
+    Loaded as an external script (js/gtm-init.js), NOT pasted inline, so the
+    CSP above can stay free of 'unsafe-inline'. This is the standard GTM
+    <head> snippet, just relocated into its own file.
+
+    REPLACE THE PLACEHOLDER: open js/gtm-init.js and swap GTM-XXXXXXX for
+    your real container ID once you create one at tagmanager.google.com.
+    Until then this script loads but GTM will 404 / no-op harmlessly.
+    ===========================================================================
+  -->
+  <script src="js/gtm-init.js"></script>
+</head>
+<body>
+
+  <!-- GTM (noscript) — must be immediately after opening <body> tag -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End GTM (noscript) -->
+
+  <header class="site-header">
+    <div class="container">
+      <a href="#top" class="logo">Sutherlands Nails</a>
+      <nav class="main-nav">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="top" class="hero">
+      <div class="container">
+        <p class="eyebrow">Est. in shadow and lacquer</p>
+        <h1>Nails carved in <em>midnight</em> velvet</h1>
+        <p class="hero-sub">Hand-finished manicures for people who think dark romance is a permanent aesthetic, not a season.</p>
+        <a href="#contact" class="btn btn-primary" data-gtm-event="cta_hero_click">Reserve a seat</a>
+      </div>
+    </section>
+
+    <div class="divider" role="presentation">
+      <span class="divider-line"></span>
+      <span class="divider-mark"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <section id="services" class="services">
+      <div class="container">
+        <h2>What We Do</h2>
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>Gel sculpt</h3>
+            <p>Structured length, glass-smooth finish, built to outlast the week.</p>
+          </div>
+          <div class="service-card">
+            <h3>Hand-painted art</h3>
+            <p>Lace, filigree, and florals rendered in fine-line lacquer work.</p>
+          </div>
+          <div class="service-card">
+            <h3>Restorative care</h3>
+            <p>Cuticle and nail-bed treatments for the months between appointments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>Sutherlands Nails is a studio for people who treat their hands like a finished detail, not an afterthought. Every appointment is unrushed, hand-finished, and built around your own sense of dark romance — sleek lines with a little shadow underneath.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Reserve a Seat</h2>
+        <form id="contact-form" action="#" method="POST">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" class="btn btn-primary" data-gtm-event="contact_form_submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-hours">Open Tuesday — Saturday, by appointment</p>
+      <p>&copy; <span id="year"></span> Sutherlands Nails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
