@@ -336,3 +336,79 @@ a:hover {
     font-size: 2.1rem;
   }
 }
+
+/* =============================================================
+   GALLERY
+   ============================================================= */
+.gallery {
+  padding: 0 0 4.5rem;
+}
+
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 1.6rem;
+}
+
+.gallery-grid {
+  columns: 2;
+  column-gap: 6px;
+}
+
+.gallery-item {
+  display: block;
+  break-inside: avoid;
+  margin-bottom: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(139, 21, 56, 0.0);
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+.gallery-item:hover .gallery-overlay {
+  background: rgba(139, 21, 56, 0.25);
+}
+
+@media (min-width: 600px) {
+  .gallery-grid {
+    columns: 3;
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery-grid {
+    columns: 4;
+  }
+}
+
+/* GLightbox theme overrides — keep dark palette consistent */
+.glightbox-clean .gclose,
+.glightbox-clean .gnext,
+.glightbox-clean .gprev {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.glightbox-clean .gdesc-inner {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+}
