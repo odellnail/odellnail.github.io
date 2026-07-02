@@ -59,9 +59,21 @@
     });
   }
 
+  function initGallery() {
+    if (typeof GLightbox === "undefined") return;
+    GLightbox({
+      selector: ".glightbox",
+      touchNavigation: true,
+      loop: true,
+      closeButton: true,
+      skin: "clean",
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     setFooterYear();
     bindGtmEvents();
     handleContactForm();
+    initGallery();
   });
 })();
