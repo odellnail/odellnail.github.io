@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,8 +36,8 @@
   -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com;
-    style-src 'self' https://fonts.googleapis.com;
+    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://cdn.jsdelivr.net;
+    style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net;
     img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com;
     connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com;
     font-src 'self' https://fonts.gstatic.com;
@@ -57,6 +58,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+  <!-- GLightbox — lightbox for the gallery. CSS here, JS at bottom of body.
+       cdn.jsdelivr.net is allow-listed in the CSP above for both script-src
+       and style-src. No other domains needed — it's fully self-contained. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 
   <link rel="stylesheet" href="css/style.css" />
 
@@ -89,6 +95,7 @@
       <a href="#top" class="logo">O'Dell's Nails</a>
       <nav class="main-nav">
         <a href="#services">Services</a>
+        <a href="#gallery">The Work</a>
         <a href="#about">About</a>
         <a href="#contact">Book</a>
       </nav>
@@ -131,6 +138,131 @@
       </div>
     </section>
 
+    <div class="divider" role="presentation">
+      <span class="divider-line"></span>
+      <span class="divider-mark"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <h2>The Work</h2>
+        <!--
+          GALLERY INSTRUCTIONS:
+          - Add your photos to the img/gallery/ folder in the repo
+          - For each photo, copy one <a> block below and update:
+              href="img/gallery/your-photo.jpg"    ← full-res for lightbox
+              data-gallery="odells"                ← keep as-is (groups them)
+              data-description="..."               ← caption shown in lightbox
+              <img src="img/gallery/your-photo.jpg" ← same path for thumbnail
+              alt="..."                             ← describe the image
+          - Portrait shots (taller than wide) get class="gallery-item tall"
+            Landscape/square shots get class="gallery-item" (no extra class)
+          - The 12 placeholder items below are where your real photos go.
+            Delete or replace them one-for-one as you add images.
+        -->
+        <div class="gallery-grid">
+
+          <a href="img/gallery/photo-01.jpg"
+             class="glightbox gallery-item tall"
+             data-gallery="odells"
+             data-description="Hand-painted lace detail">
+            <img src="img/gallery/photo-01.jpg" alt="Hand-painted lace nail art" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-02.jpg"
+             class="glightbox gallery-item"
+             data-gallery="odells"
+             data-description="Gel sculpt, oxblood finish">
+            <img src="img/gallery/photo-02.jpg" alt="Gel sculpt oxblood nails" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-03.jpg"
+             class="glightbox gallery-item"
+             data-gallery="odells"
+             data-description="Matte black with gold filigree">
+            <img src="img/gallery/photo-03.jpg" alt="Matte black nails with gold filigree" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-04.jpg"
+             class="glightbox gallery-item tall"
+             data-gallery="odells"
+             data-description="Dark floral set">
+            <img src="img/gallery/photo-04.jpg" alt="Dark floral nail set" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-05.jpg"
+             class="glightbox gallery-item"
+             data-gallery="odells"
+             data-description="Midnight gel with chrome dust">
+            <img src="img/gallery/photo-05.jpg" alt="Midnight gel nails with chrome dust" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-06.jpg"
+             class="glightbox gallery-item"
+             data-gallery="odells"
+             data-description="Restorative set, natural length">
+            <img src="img/gallery/photo-06.jpg" alt="Natural length restorative nail set" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-07.jpg"
+             class="glightbox gallery-item"
+             data-gallery="odells"
+             data-description="Stiletto sculpt, deep plum">
+            <img src="img/gallery/photo-07.jpg" alt="Stiletto sculpt deep plum nails" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-08.jpg"
+             class="glightbox gallery-item tall"
+             data-gallery="odells"
+             data-description="Lace overlay on sheer base">
+            <img src="img/gallery/photo-08.jpg" alt="Lace overlay nail art on sheer base" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-09.jpg"
+             class="glightbox gallery-item"
+             data-gallery="odells"
+             data-description="Coffin shape, matte burgundy">
+            <img src="img/gallery/photo-09.jpg" alt="Coffin shape matte burgundy nails" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-10.jpg"
+             class="glightbox gallery-item"
+             data-gallery="odells"
+             data-description="Fine-line botanical art">
+            <img src="img/gallery/photo-10.jpg" alt="Fine-line botanical nail art" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-11.jpg"
+             class="glightbox gallery-item tall"
+             data-gallery="odells"
+             data-description="Square gel, velvet finish">
+            <img src="img/gallery/photo-11.jpg" alt="Square gel nails velvet finish" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+          <a href="img/gallery/photo-12.jpg"
+             class="glightbox gallery-item"
+             data-gallery="odells"
+             data-description="Almond shape, midnight ink">
+            <img src="img/gallery/photo-12.jpg" alt="Almond shape midnight ink nails" loading="lazy" />
+            <span class="gallery-overlay"></span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="about">
       <div class="container">
         <h2>About Us</h2>
@@ -164,6 +296,8 @@
     </div>
   </footer>
 
+  <!-- GLightbox JS — initialised in main.js -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
