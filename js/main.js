@@ -64,7 +64,7 @@ function initBackToTop() {
   if (!btn) return;
 
   window.addEventListener("scroll", function () {
-    if (window.scrollY > 200) {
+    if (window.scrollY > 400) {
       btn.classList.add("visible");
     } else {
       btn.classList.remove("visible");
